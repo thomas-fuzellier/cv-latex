@@ -1,0 +1,204 @@
+% =====================================================================
+%  CV de Thomas FUZELLIER
+% ---------------------------------------------------------------------
+%  Ce fichier contient le CONTENU du CV : modifie-le librement.
+%  Le DESIGN (couleurs, tailles, marges) est dans cv-style.sty.
+%
+%  Compilation : pdflatex cv_Thomas_Fuzellier.tex   (ou "Build LaTeX project" dans VS Code)
+%
+%  Rappels LaTeX :
+%    - les caractères & % $ # _ s'écrivent \& \% \$ \# \_
+%    - "--" donne un tiret de date (–)
+%    - "~" est une espace insécable (ex. avant les deux-points)
+%    - \textbf{...} met en gras (mots-clés des missions)
+%    - une ligne commençant par % est un commentaire (ignorée)
+% =====================================================================
+\documentclass[10pt]{article}
+\usepackage{cv-style}
+\hypersetup{pdftitle={CV Thomas FUZELLIER}, pdfauthor={Thomas FUZELLIER}}
+
+\begin{document}
+\noindent
+% #####################################################################
+%  COLONNE GAUCHE (fond bleu)
+%  Les rubriques s'étalent automatiquement sur toute la hauteur.
+% #####################################################################
+\begin{cvsidebar}
+
+\cvphoto{photo.jpg}
+
+% --- Contact : \sidecontact{icône}{texte} ------------------------------
+\sidesection{Contact}
+\sidecontact{\faEnvelope}{\href{mailto:thomas.fuzellier@outlook.fr}{thomas.fuzellier@outlook.fr}}
+\sidecontact{\faPhone}{\href{tel:+33610484137}{+33~(0)~6~10~48~41~37}}
+\sidecontact{\faGlobe}{\href{https://fuzellier-portfolio-website.vercel.app}{fuzellier-portfolio-website.vercel.app}}
+\sidecontact{\faMapMarker}{Mobilité~: France}
+\sidecontact{\faCar}{Permis B}
+\sidecontact{\faFlag}{Nationalité française}
+
+% --- Compétences : \sidegroup{Catégorie}{liste} --------------------------
+%  Ordre : du plus important au moins important pour le poste visé.
+\sidesection{Compétences}
+\sidegroup{Langages}{C/C++, Python, Java, SQL}
+\sidegroup{Systèmes embarqués}{STM32, Arduino, bus CAN}
+\sidegroup{Électronique}{Conception PCB (KiCad), électronique embarquée}
+\sidegroup{IA / Machine Learning}{LLM (GPT, LLaMA), NLP, Transformers, Prompt Engineering}
+\sidegroup{Web \& API}{API REST, HTTP, HTML, CSS, JavaScript}
+\sidegroup{Outils}{Git, Linux, Docker, Matlab, Fusion~360, PyTorch, HuggingFace, Pandas, NumPy}
+
+% --- Qualités (rubrique optionnelle : enlève les % pour l'activer) -----
+% \sidesection{Qualités}
+% Qualité 1, Qualité 2, Qualité 3\par
+
+% --- Langues : \sideitem{Langue}{Niveau} --------------------------------
+\sidesection{Langues}
+\sideitem{Anglais}{TOEIC 810}
+\sideitem{Espagnol}{intermédiaire}
+
+% --- Centres d'intérêt --------------------------------------------------
+\sidesection{Centres d’intérêt}
+\sidegroup{Menuiserie}{Fabrication de mobilier artisanal}
+\sidegroup{Jeux}{Jeux de cartes, de plateau et vidéo}
+\sidegroup{Sport}{Street Lifting, Tennis}
+
+\end{cvsidebar}%
+% #####################################################################
+%  COLONNE DROITE (fond blanc)
+% #####################################################################
+\begin{cvmain}
+
+% --- En-tête : \cvheader{Prénom}{NOM}{Intitulé} -------------------------
+\cvheader{Thomas}{FUZELLIER}{Ingénieur Systèmes Embarqués}
+
+% --- Accroche (supprimer la commande pour l'enlever) --------------------
+\cvsummary{Ingénieur ENSEA en systèmes embarqués, avec plus d’un an 
+d’expérience du firmware STM32 (C/C++) à la mise en service et au 
+diagnostic sur le terrain. Profil polyvalent, du logiciel à l’électronique, 
+avec une ouverture à l’IA appliquée.}
+
+% =====================================================================
+%  EXPÉRIENCES
+%  \cvexperience{Titre}{Dates}{Entreprise}{Lieu}{Contexte en une ligne}
+%  puis la liste des missions, et \cvsep entre deux expériences.
+% =====================================================================
+\cvsection{Expériences}
+\begin{cvtimeline}
+
+\cvexperience
+  {Ingénieur Systèmes Embarqués -- Consultant}
+  {Sept. 2026 -- aujourd’hui}
+  {Ethic Opex - GCK}
+  {Cournon, France}
+  {Mission au service après-vente~: diagnostic, fiabilisation et amélioration continue des véhicules.}
+\begin{cvitems}
+  \item \textbf{Diagnostic hardware et software} des dysfonctionnements remontés par les utilisateurs
+  \item \textbf{Solutions correctives}~: réalignement logiciel, \textbf{calibration}, instrumentation d’essai
+  \item Analyse de données avec des \textbf{outils réseau et CAN}, \textbf{essais dynamiques} de validation
+  \item \textbf{Rapports d’essais} et fiches d’intervention, remontée d’anomalies au \textbf{bureau d’études}
+  \item Animation de \textbf{formations} destinées aux partenaires réparateurs
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {Ingénieur Systèmes Embarqués}
+  {Janv. 2025 -- Janv. 2026}
+  {Semi Lift}
+  {Toulon, France}
+  {PME du secteur des ascenseurs, internalisant son développement électronique.}
+\begin{cvitems}
+  \item Développement et maintenance du \textbf{firmware C/C++} de contrôle d’ascenseur sur \textbf{microcontrôleurs STM32}
+  \item Développement de \textbf{drivers} pour l’interfaçage de capteurs et d’actionneurs
+  \item \textbf{Intégration et validation} des capteurs sur systèmes d’ascenseur
+  \item \textbf{Mise en service sur site} et dépannage des installations
+  \item Développement d’\textbf{outils Python} pour automatiser les tests et analyser les données de fonctionnement
+  % Mission retirée car peu utile pour un poste embarqué (enlever le % pour la remettre) :
+  % \item Gestion et maintenance du site internet de l’entreprise
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {Stage Ingénieur NLP / LLM appliqué à la santé}
+  {Mai -- Déc. 2024}
+  {CTB - Laboratoire MEDAL}
+  {Université de Madrid, Espagne}
+  {Structuration automatique de notes cliniques confidentielles en espagnol
+   à l’aide de LLM (Llama).}
+\begin{cvitems}
+  \item Conception d’un \textbf{pipeline NLP end-to-end} en Python~: extraction, normalisation et structuration des notes
+  \item Intégration de \textbf{modèles Llama via API REST}~: prompt engineering, gestion du contexte et des tokens, optimisation et benchmark sur notes réelles
+  \item Intégration d’un \textbf{knowledge graph} pour relier les informations médicales extraites
+  \item \textbf{Industrialisation}~: architecture modulaire, tests unitaires, documentation technique
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {Stage Ingénieur Systèmes embarqués \& instrumentation}
+  {Juin -- Août 2023}
+  {Stratolia}
+  {Palaiseau, France}
+  {Nacelle d’observation de la Terre embarquée sous ballon stratosphérique.}
+\begin{cvitems}
+  \item Développement d’un \textbf{système de contrôle au sol} pour une caméra embarquée
+  \item \textbf{Conception mécanique} et prototypage de la nacelle
+  \item \textbf{Développement embarqué} sur microcontrôleur pour l’acquisition de données capteurs
+  \item \textbf{Conception électronique} et réalisation de \textbf{PCB}
+  \item Mise en place d’un \textbf{banc de test} simulant les contraintes du vol
+\end{cvitems}
+
+\end{cvtimeline}
+
+% =====================================================================
+%  FORMATION
+%  \cveducation{Diplôme}{Dates}{Établissement}{Lieu}{Détails}
+% =====================================================================
+\cvsection{Formations}
+\begin{cvtimeline}
+
+\cveducation
+  {Diplôme d’ingénieur}
+  {Sept. 2020 -- Déc. 2024}
+  {ENSEA — École Nationale Supérieure de l’Électronique et de ses Applications}
+  {Cergy, France}
+  {Ingénieur généraliste, option Informatique et Système}
+
+\cvsep
+\cveducation
+  {Classe préparatoire ATS}
+  {Sept. 2019 -- Juin 2020}
+  {Lycée des Remparts}
+  {Marseille, France}
+  {Mathématiques et physique}
+
+\cvsep
+\cveducation
+  {DUT GEII}
+  {Sept. 2017 -- Juin 2019}
+  {Université d’Aix-Marseille}
+  {Marseille, France}
+  {Génie Électrique et Informatique Industrielle}
+
+\end{cvtimeline}
+
+% =====================================================================
+%  PROJETS
+%  \cvproject{Titre}{Date}{Lieu (peut rester vide)}{Technologies}{Description}
+% =====================================================================
+\cvsection{Projets}
+\begin{cvtimeline}
+
+\cvproject
+  {Générateur de candidatures assisté par IA}
+  {Projet personnel}
+  {\href{https://github.com/thomas-fuzellier/AI-Job-Application-Optimizer}{GitHub}}
+  {Python · Tkinter · API Groq (LLM) · pytest}
+  {Application générant CV adapté, lettre PDF et suivi Excel à partir d’une offre d’emploi.}
+\begin{cvitems}
+  \item \textbf{Pipeline LLM}~: détection de la langue, choix du CV et des paragraphes pré-rédigés
+  \item IA limitée à la \textbf{sélection de contenus validés}, sans texte généré, pour un résultat maîtrisé
+  \item \textbf{Architecture modulaire}, export \textbf{PDF} et \textbf{Excel}, \textbf{tests unitaires} avec API simulée
+\end{cvitems}
+
+\end{cvtimeline}
+
+\end{cvmain}
+\end{document}

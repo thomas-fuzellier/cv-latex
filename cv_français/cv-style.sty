@@ -1,0 +1,263 @@
+% =====================================================================
+%  cv-style.sty — Mise en page du CV (design uniquement, aucune donnée)
+% ---------------------------------------------------------------------
+%  Ce fichier définit les couleurs, les tailles, les marges et les
+%  "macros" (commandes) utilisées par cv.tex. Le contenu du CV, lui,
+%  est écrit directement dans cv.tex.
+%
+%  Pour changer l'apparence : modifie les sections 2 (couleurs) et
+%  3 (dimensions). Le reste n'a normalement pas besoin d'être touché.
+%
+%  Options du paquet (rarement utiles) :
+%    \usepackage[helvet]{cv-style}   -> Helvetica au lieu d'Open Sans
+%    \usepackage[nobabel]{cv-style}  -> sans la césure française
+%    \usepackage[noicons]{cv-style}  -> sans les icônes de contact
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cv-style}[2026/10/27 Style du CV de Thomas Fuzellier]
+
+% --- Options --------------------------------------------------------
+\newif\ifcv@helvet \cv@helvetfalse
+\newif\ifcv@babel  \cv@babeltrue
+\newif\ifcv@icons  \cv@iconstrue
+\DeclareOption{helvet}{\cv@helvettrue}
+\DeclareOption{nobabel}{\cv@babelfalse}
+\DeclareOption{noicons}{\cv@iconsfalse}
+\ProcessOptions\relax
+
+% =====================================================================
+%  1. PAQUETS (tous fournis par MiKTeX, installés automatiquement)
+% =====================================================================
+\RequirePackage[T1]{fontenc}        % accents corrects dans le PDF
+\ifcv@helvet
+  \RequirePackage[scaled=0.95]{helvet}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \RequirePackage[default]{opensans} % police proche du CV de référence
+\fi
+\ifcv@babel
+  % shorthands=off : évite les conflits de « ; » et « : » avec TikZ et les liens
+  \RequirePackage[french,shorthands=off]{babel} % césure française
+  \frenchsetup{StandardLists=true}   % garde nos puces rondes
+\fi
+\RequirePackage[a4paper, top=0.6cm, bottom=0.35cm, left=0cm, right=0cm]{geometry}
+\RequirePackage{xcolor}             % couleurs
+\RequirePackage{graphicx}           % photo
+\RequirePackage{tikz}               % photo ronde + puces de la timeline
+\RequirePackage{enumitem}           % listes à puces compactes
+\RequirePackage[hidelinks]{hyperref}% email et site cliquables
+\ifcv@icons
+  \RequirePackage{fontawesome5}     % icônes (\faEnvelope, \faPhone...)
+\fi
+
+\pagestyle{empty}                   % pas de numéro de page
+\setlength{\parindent}{0pt}         % pas d'alinéa
+\setlength{\parskip}{0pt}
+
+% =====================================================================
+%  2. COULEURS  (code hexadécimal, modifiable librement)
+% =====================================================================
+\definecolor{cvsidebar}{HTML}{1B2A47}   % fond de la colonne gauche
+\definecolor{cvsidetext}{HTML}{FFFFFF}  % texte de la colonne gauche
+\definecolor{cvsidelabel}{HTML}{9DB8E8} % libellés de la colonne gauche
+\colorlet{cvsiderule}{cvsidebar!65!white}% filets de la colonne gauche
+\definecolor{cvdark}{HTML}{1B2A47}      % titres de la colonne droite
+\definecolor{cvaccent}{HTML}{3D6FC4}    % entreprises, lieux, timeline
+\definecolor{cvtext}{HTML}{222222}      % texte courant
+\definecolor{cvgray}{HTML}{5A5A5A}      % dates
+
+% =====================================================================
+%  3. DIMENSIONS
+% =====================================================================
+\newlength{\cvsidebarwidth}  \setlength{\cvsidebarwidth}{5.3cm} % largeur colonne gauche
+\newlength{\cvsidepad}       \setlength{\cvsidepad}{0.42cm}     % marge intérieure gauche
+\newlength{\cvmainpadL}      \setlength{\cvmainpadL}{0.55cm}    % marge gauche colonne droite
+\newlength{\cvmainpadR}      \setlength{\cvmainpadR}{0.6cm}    % marge droite de la page
+\newlength{\cvsecskip}       \setlength{\cvsecskip}{10pt}       % espace avant un titre (droite)
+\newlength{\cvsidesecskip}   \setlength{\cvsidesecskip}{10pt}   % espace minimal avant un titre (gauche)
+\newlength{\cventryskip}     \setlength{\cventryskip}{7pt}      % espace entre deux entrées
+\newlength{\cvtlrule}        \setlength{\cvtlrule}{0.8pt}       % épaisseur ligne timeline
+\newlength{\cvtlgap}         \setlength{\cvtlgap}{10pt}         % écart ligne -> texte
+\newlength{\cveduleft}       \setlength{\cveduleft}{3.75cm}     % colonne "diplôme" (Formation)
+\newlength{\cvedugap}        \setlength{\cvedugap}{6pt}         % écart entre les deux sous-colonnes
+
+% Photo : taille du cadre carré, arrondi des coins, largeur de l'image
+% et décalage pour centrer le visage (yshift positif = image remontée).
+%   \cvphotocorner : 0pt = carré net | 5pt = coins arrondis
+%                    moitié de \cvphotoside (1.65cm) = photo ronde
+% Décalage vertical de toute la colonne gauche (photo comprise) :
+%   valeur négative = remonte la colonne, positive = la descend
+\newcommand{\cvsidetop}{-0.3cm}
+\newcommand{\cvphotoside}{4cm}
+\newcommand{\cvphotocorner}{0pt}
+\newcommand{\cvphotowidth}{4.3cm}
+\newcommand{\cvphotoxshift}{0cm}
+\newcommand{\cvphotoyshift}{0.15cm}
+
+% Tailles de texte (taille / interligne, en points)
+\newcommand{\cvbody}{\fontsize{8.9}{10.8}\selectfont}     % texte colonne droite
+\newcommand{\cvsidesize}{\fontsize{9}{11.2}\selectfont}   % texte colonne gauche
+
+% =====================================================================
+%  4. FOND BLEU DE LA COLONNE GAUCHE
+%  Dessiné sur toute la hauteur de la page, derrière le texte
+%  (crochet "shipout/background" du noyau LaTeX, aucun paquet requis).
+% =====================================================================
+\AddToHook{shipout/background}{%
+  \put(0,0){\makebox[0pt][l]{%
+    \raisebox{-\paperheight}{\color{cvsidebar}\rule{\cvsidebarwidth}{\paperheight}}}}}
+
+% =====================================================================
+%  5. LES DEUX COLONNES
+%  Deux "minipages" côte à côte : la page fait une seule A4 par
+%  construction. Si le contenu déborde, LaTeX signale un "Overfull".
+% =====================================================================
+% La colonne gauche a une hauteur fixe (toute la page) : l'espace libre
+% est réparti automatiquement entre les rubriques (voir \sidesection).
+\newenvironment{cvsidebar}{%
+  \begin{minipage}[t]{\cvsidebarwidth}\vspace{0pt}\centering
+  \begin{minipage}[t][\dimexpr\textheight-0.5cm\relax]{\dimexpr\cvsidebarwidth-2\cvsidepad\relax}\vspace{0pt}\vspace{\cvsidetop}%
+  \color{cvsidetext}\raggedright\cvsidesize
+}{%
+  \end{minipage}\end{minipage}%
+}
+\newenvironment{cvmain}{%
+  \begin{minipage}[t]{\dimexpr\paperwidth-\cvsidebarwidth\relax}\vspace{0pt}%
+  \hspace*{\cvmainpadL}%
+  \begin{minipage}[t]{\dimexpr\paperwidth-\cvsidebarwidth-\cvmainpadL-\cvmainpadR\relax}\vspace{0pt}%
+  \color{cvtext}%
+}{%
+  \end{minipage}\end{minipage}%
+}
+
+% =====================================================================
+%  6. COLONNE GAUCHE : photo, titres, lignes d'information
+% =====================================================================
+% \cvphoto{fichier} : photo carrée (ou arrondie) avec liseré blanc
+\newcommand{\cvphoto}[1]{%
+  {\centering
+  \begin{tikzpicture}
+    \begin{scope}
+      \clip[rounded corners=\cvphotocorner]
+        (-0.5*\cvphotoside,-0.5*\cvphotoside) rectangle (0.5*\cvphotoside,0.5*\cvphotoside);
+      \node at (\cvphotoxshift,\cvphotoyshift)
+        {\includegraphics[width=\cvphotowidth]{#1}};
+    \end{scope}
+    \draw[white, line width=2pt, rounded corners=\cvphotocorner]
+      (-0.5*\cvphotoside,-0.5*\cvphotoside) rectangle (0.5*\cvphotoside,0.5*\cvphotoside);
+  \end{tikzpicture}\par}%
+}
+
+% \sidesection{Titre} : titre centré + filet
+%   "plus 1fil" = espace extensible : les rubriques s'étalent sur la hauteur
+\newcommand{\sidesection}[1]{%
+  \par\vspace{\cvsidesecskip}\vspace{0pt plus 1fil}%
+  {\centering\large\bfseries #1\par}%
+  \vspace{3pt}{\color{cvsiderule}\rule{\linewidth}{0.5pt}}\par\vspace{4pt}%
+}
+
+% \sideitem{Libellé}{Valeur} : libellé à gauche, valeur à droite
+\newcommand{\sideitem}[2]{%
+  {\bfseries\color{cvsidelabel}#1}\hfill #2\par\vspace{2.5pt}}
+
+% \sidecontact{icône}{texte} : ligne de contact avec icône
+\newlength{\cviconwidth}\setlength{\cviconwidth}{1.5em}
+\newcommand{\sidecontact}[2]{%
+  \makebox[\cviconwidth][l]{\color{cvsidelabel}#1}%
+  \parbox[t]{\dimexpr\linewidth-\cviconwidth\relax}{\raggedright #2}\par\vspace{4pt}}
+\ifcv@icons\else % sans le paquet d'icônes : icônes remplacées par rien
+  \newcommand{\faEnvelope}{}\newcommand{\faPhone}{}\newcommand{\faGlobe}{}
+  \newcommand{\faMapMarker}{}\newcommand{\faCar}{}\newcommand{\faFlag}{}
+\fi
+
+% \sideitemlong{Libellé}{Valeur} : valeur longue sous le libellé
+\newcommand{\sideitemlong}[2]{%
+  {\bfseries\color{cvsidelabel}#1}\par #2\par\vspace{2.5pt}}
+
+% \sidegroup{Catégorie}{éléments} : bloc compétences / loisirs
+\newcommand{\sidegroup}[2]{%
+  {\bfseries\color{cvsidelabel}#1}\par #2\par\vspace{3.5pt}}
+
+% =====================================================================
+%  7. COLONNE DROITE : en-tête, titres, timeline, entrées
+% =====================================================================
+% \cvheader{Prénom}{NOM}{Intitulé}
+\newcommand{\cvheader}[3]{%
+  {\fontsize{23}{27}\selectfont\color{cvdark}#1 \textbf{#2}\par}%
+  \vspace{3pt}%
+  {\large\bfseries\color{cvaccent}#3\par}%
+}
+
+% \cvsummary{texte} : accroche
+\newcommand{\cvsummary}[1]{%
+  \par\vspace{5pt}{\cvbody\color{cvgray}#1\par}}
+
+% \cvsection{Titre} : grand titre suivi d'un trait horizontal
+\newcommand{\cvsection}[1]{%
+  \par\vspace{\cvsecskip}%
+  {\Large\bfseries\color{cvdark}\strut#1}\hspace{8pt}%
+  {\color{cvdark}\leaders\hrule height 0.8pt\hfill\kern0pt}\par
+  \nointerlineskip\vspace{6pt}% écart fixe titre -> première entrée
+}
+
+% Environnement timeline : ligne verticale à gauche des entrées
+\newenvironment{cvtimeline}{%
+  \par\noindent\hspace*{4pt}{\color{cvaccent}\vrule width \cvtlrule}%
+  \hspace{\cvtlgap}%
+  \begin{minipage}[t]{\dimexpr\linewidth-4pt-\cvtlrule-\cvtlgap\relax}\vspace{0pt}%
+}{%
+  \end{minipage}\par
+}
+
+% \cvsep : espace entre deux entrées d'une même rubrique
+\newcommand{\cvsep}{\par\vspace{\cventryskip}}
+
+% \cvdot : puce ronde placée sur la ligne de la timeline
+\newcommand{\cvdot}{%
+  \leavevmode\llap{\makebox[0pt]{\tikz[baseline=-0.5ex]
+    \fill[cvaccent, draw=white, line width=0.8pt] (0,0) circle (2.8pt);}%
+    \hspace{\dimexpr\cvtlgap+0.5\cvtlrule\relax}}}
+
+% Liste à puces des missions
+\newenvironment{cvitems}{%
+  \cvbody
+  \begin{itemize}[leftmargin=11pt, labelsep=5pt, nosep, topsep=1.5pt,
+                  itemsep=0.6pt, label={\color{cvaccent}\textbullet}]
+}{\end{itemize}}
+
+% \cventrytitle{titre} : titre d'une expérience ou d'un projet
+\newcommand{\cventrytitle}[1]{%
+  \cvdot{\fontsize{10.5}{13}\selectfont\bfseries\color{cvdark}#1}\par\vspace{1pt}}
+
+% \cventrymeta{dates}{organisme}{lieu} : ligne d'informations
+\newcommand{\cventrymeta}[3]{%
+  {\cvbody\color{cvgray}#1\quad\textcolor{cvaccent}{\textbf{#2}}%
+   \ifx\relax#3\relax\else\ \textcolor{cvaccent}{#3}\fi\par}\vspace{1.5pt}}
+
+% \cventrydesc{texte} : phrase de contexte
+\newcommand{\cventrydesc}[1]{{\cvbody #1\par}}
+
+% \cvexperience{titre}{dates}{entreprise}{lieu}{description}
+%   -> à suivre de \begin{cvitems} \item ... \end{cvitems}
+\newcommand{\cvexperience}[5]{%
+  \cventrytitle{#1}\cventrymeta{#2}{#3}{#4}\cventrydesc{#5}}
+
+% \cvproject{titre}{date}{lieu}{technologies}{description}
+\newcommand{\cvproject}[5]{%
+  \cventrytitle{#1}%
+  {\cvbody\color{cvgray}#2%
+   \ifx\relax#3\relax\else\quad\textcolor{cvaccent}{#3}\fi
+   \ifx\relax#4\relax\else\quad{\color{cvgray}#4}\fi\par}\vspace{1.5pt}%
+  \cventrydesc{#5}}
+
+% \cveducation{diplôme}{dates}{établissement}{lieu}{détails}
+%   Deux sous-colonnes, comme sur le CV de référence.
+\newcommand{\cveducation}[5]{%
+  \cvdot\begin{minipage}[t]{\cveduleft}\cvbody\leavevmode
+    {\bfseries\color{cvdark}#1}\par{\color{cvgray}#2}%
+  \end{minipage}\hspace{\cvedugap}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\cveduleft-\cvedugap\relax}\cvbody\raggedright\leavevmode
+    {\bfseries\color{cvdark}#3}, \textcolor{cvaccent}{#4}\par #5%
+  \end{minipage}\par}
+
+\endinput
