@@ -5,14 +5,12 @@ CV d'une page A4 en deux colonnes : une colonne gauche bleu foncé (photo, conta
 ## Contenu du dossier
 
 ```
-CV/
-├── cv.tex            Contenu du CV en français  -> c'est lui que tu modifies
-├── cv-en.tex         Contenu du CV en anglais (normes anglophones)
-├── cv-style.sty      Design commun : couleurs, tailles, marges, commandes
-├── photo.jpg         Photo de profil
+cv-latex/
 ├── README.md         Ce fichier
-└── .vscode/
-    └── settings.json Configuration de LaTeX Workshop (compilation pdflatex)
+└── cv_français/
+    ├── cv.tex            Contenu du CV en français  -> c'est lui que tu modifies
+    ├── cv-style.sty      Design commun : couleurs, tailles, marges, commandes
+    └── photo.jpg         Photo de profil
 ```
 
 Le principe est simple : **le contenu est dans les `.tex`, le design est dans `cv-style.sty`**. Une modification du design s'applique automatiquement aux deux versions.
