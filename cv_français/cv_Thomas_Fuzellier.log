@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.20)  27 OCT 2026 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.20)  31 OCT 2026 16:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/thomas.fuzellier/thomas.fuzellier_perso/cv_Thomas_Fuzellier/cv_français/cv_Thomas_Fuzellier.tex
-(c:/Users/thomas.fuzellier/thomas.fuzellier_perso/cv_Thomas_Fuzellier/cv_français/cv_Thomas_Fuzellier.tex
+**c:/Users/thomas.fuzellier/thomas.fuzellier_perso/cv-latex/cv_français/cv_Thomas_Fuzellier.tex
+(c:/Users/thomas.fuzellier/thomas.fuzellier_perso/cv-latex/cv_français/cv_Thomas_Fuzellier.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 (C:\Users\thomas.fuzellier\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -569,35 +569,39 @@ Overfull \hbox (4.9032pt too wide) in paragraph at lines 32--32
 
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on input line 33.
 (C:\Users\thomas.fuzellier\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree2.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on input line 36.
+LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on input line 35.
+ (C:\Users\thomas.fuzellier\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomebrands0.fd)
+LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <9> not available
+(Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead on input line 35.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on input line 37.
  (C:\Users\thomas.fuzellier\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree0.fd)
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 42.
+(Font)              scaled to size 9.0pt on input line 43.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 23.0pt on input line 71.
+(Font)              scaled to size 23.0pt on input line 72.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 23.0pt on input line 71.
+(Font)              scaled to size 23.0pt on input line 72.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.9pt on input line 77.
+(Font)              scaled to size 8.9pt on input line 78.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 84.
+(Font)              scaled to size 14.4pt on input line 85.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 84.
+(Font)              scaled to size 14.4pt on input line 85.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.5pt on input line 92.
+(Font)              scaled to size 10.5pt on input line 93.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 10.5pt on input line 92.
+(Font)              scaled to size 10.5pt on input line 93.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 8.9pt on input line 92.
-LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on input line 94.
+(Font)              scaled to size 8.9pt on input line 93.
+LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on input line 95.
  (C:\Users\thomas.fuzellier\AppData\Local\Programs\MiKTeX\tex/latex/opensans\ts1opensans-tlf.fd
 File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.9pt on input line 94.
+(Font)              scaled to size 8.9pt on input line 95.
  [1
 
-{C:/Users/thomas.fuzellier/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_jg4h6q.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free0.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc} <./photo.jpg>] (cv_Thomas_Fuzellier.aux)
+{C:/Users/thomas.fuzellier/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_jg4h6q.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free0.enc}{C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc} <./photo.jpg>] (cv_Thomas_Fuzellier.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
@@ -606,17 +610,17 @@ Package rerunfilecheck Info: File `cv_Thomas_Fuzellier.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25892 strings out of 467392
- 513690 string characters out of 5400292
+ 25912 strings out of 467392
+ 514230 string characters out of 5400292
  908464 words of memory out of 5000000
- 54853 multiletter control sequences out of 15000+600000
- 639724 words of font info for 68 fonts, out of 8000000 for 9000
+ 54868 multiletter control sequences out of 15000+600000
+ 640045 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,10n,108p,621b,867s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Bold.pfb><C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb>
-Output written on cv_Thomas_Fuzellier.pdf (1 page, 180485 bytes).
+ 107i,10n,108p,610b,867s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb><C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Bold.pfb><C:/Users/thomas.fuzellier/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb>
+Output written on cv_Thomas_Fuzellier.pdf (1 page, 189318 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
