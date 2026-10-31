@@ -1,0 +1,206 @@
+% =====================================================================
+%  CV of Thomas FUZELLIER — English version
+% ---------------------------------------------------------------------
+%  Même design que cv_Thomas_Fuzellier.tex (cv-style.sty), contenu adapté
+%  aux codes des CV anglophones :
+%    - pas de photo, de nationalité ni de permis (usage UK/US, pour
+%      éviter toute discrimination) -> lignes commentées, réactivables
+%    - verbes d'action : présent pour le poste actuel, passé sinon
+%    - dates au format anglais (Sep 2026 -- Present)
+%    - équivalences des diplômes français
+%    - orthographe britannique (analyse, optimise, programme...)
+%
+%  Compilation : pdflatex cv_Thomas_Fuzellier_EN.tex
+%  (même dossier que cv-style.sty et photo.jpg)
+% =====================================================================
+\documentclass[10pt]{article}
+\usepackage[nobabel]{cv-style}       % même design, sans la césure française
+\usepackage[british]{babel}          % césure anglaise
+\hypersetup{pdftitle={CV Thomas FUZELLIER}, pdfauthor={Thomas FUZELLIER}}
+
+% Premier titre de la colonne gauche, collé en haut (sans photo, le titre
+% standard \sidesection laisserait un grand espace au-dessus).
+% Si tu remets la photo, remplace \sidesectionfirst par \sidesection.
+\newcommand{\sidesectionfirst}[1]{%
+  {\centering\large\bfseries #1\par}%
+  \vspace{3pt}{\color{cvsiderule}\rule{\linewidth}{0.5pt}}\par\vspace{4pt}}
+
+\begin{document}
+\noindent
+% #####################################################################
+%  LEFT COLUMN (dark blue)
+% #####################################################################
+\begin{cvsidebar}
+
+% Photo : absente par défaut sur un CV anglophone.
+% Enlève le % pour la remettre (usage courant en Europe continentale).
+% \cvphoto{photo.jpg}
+
+% --- Contact ------------------------------------------------------------
+\vspace*{0.6cm}% marge haute, alignée sur le nom à droite
+\sidesectionfirst{Contact}
+\sidecontact{\faEnvelope}{\href{mailto:thomas.fuzellier@outlook.fr}{thomas.fuzellier@outlook.fr}}
+\sidecontact{\faPhone}{\href{tel:+33610484137}{+33~6~10~48~41~37}}
+\sidecontact{\faGlobe}{\href{https://fuzellier-portfolio-website.vercel.app}{fuzellier-portfolio-website.vercel.app}}
+\sidecontact{\faLinkedin}{\href{https://www.linkedin.com/in/thomas-fuzellier/}{in/thomas-fuzellier}}
+\sidecontact{\faMapMarker}{Based in France, open to relocation within France}
+% Informations peu usuelles en anglais, à réactiver si l'offre l'exige
+% (par ex. un poste défense demandant la nationalité) :
+% \sidecontact{\faCar}{Full driving licence}
+% \sidecontact{\faFlag}{French citizen}
+
+% --- Skills ---------------------------------------------------------------
+\sidesection{Skills}
+\sidegroup{Programming}{C/C++, Python, Java, SQL}
+\sidegroup{Embedded Systems}{STM32, Arduino, CAN bus}
+\sidegroup{Electronics}{PCB design (KiCad), embedded electronics}
+\sidegroup{AI / Machine Learning}{LLMs (GPT, LLaMA), NLP, Transformers, Prompt Engineering}
+\sidegroup{Web \& APIs}{REST APIs, HTTP, HTML, CSS, JavaScript}
+\sidegroup{Tools}{Git, Linux, Docker, Matlab, Fusion~360, PyTorch, Hugging Face, Pandas, NumPy}
+
+% --- Languages ----------------------------------------------------------
+\sidesection{Languages}
+\sidegroup{French}{Native}
+\sidegroup{English}{Professional working proficiency (TOEIC 810)}
+\sidegroup{Spanish}{Intermediate}
+
+% --- Interests ----------------------------------------------------------
+\sidesection{Interests}
+\sidegroup{Woodworking}{Handcrafted furniture}
+\sidegroup{Games}{Card, board and video games}
+\sidegroup{Sport}{Street lifting, tennis}
+
+\end{cvsidebar}%
+% #####################################################################
+%  RIGHT COLUMN (white)
+% #####################################################################
+\begin{cvmain}
+
+\cvheader{Thomas}{FUZELLIER}{Embedded Systems Engineer}
+
+% --- Professional summary --------------------------------------------
+\cvsummary{Embedded systems engineer (ENSEA) with over a year of hands-on
+experience, from STM32 firmware development in C/C++ to on-site commissioning
+and field diagnostics. Versatile profile spanning software and electronics,
+with additional experience in applied AI.}
+
+% =====================================================================
+%  EXPERIENCE — \cvexperience{Title}{Dates}{Company}{Location}{Context}
+% =====================================================================
+\cvsection{Experience}
+\begin{cvtimeline}
+
+\cvexperience
+  {Embedded Systems Engineer -- Consultant}
+  {Sep 2026 -- Present}
+  {Ethic Opex - GCK}
+  {Cournon, France}
+  {After-sales assignment: vehicle troubleshooting, reliability and continuous improvement.}
+\begin{cvitems}
+  \item \textbf{Diagnose hardware and software faults} reported by end users
+  \item Implement \textbf{corrective actions}: software realignment, \textbf{calibration}, test instrumentation
+  \item Analyse data with \textbf{network and CAN tools}; run \textbf{dynamic tests} to validate fixes
+  \item Write \textbf{test reports} and service records; escalate field issues to the \textbf{design office}
+  \item Deliver \textbf{training sessions} to partner repair workshops
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {Embedded Systems Engineer}
+  {Jan 2025 -- Jan 2026}
+  {Semi Lift}
+  {Toulon, France}
+  {Lift manufacturing SME bringing its electronics development in-house.}
+\begin{cvitems}
+  \item Developed and maintained \textbf{C/C++ lift control firmware} on \textbf{STM32 microcontrollers}
+  \item Developed \textbf{drivers} to interface sensors and actuators
+  \item \textbf{Integrated and validated} sensors on lift systems
+  \item \textbf{Commissioned installations on site} and carried out troubleshooting
+  \item Built \textbf{Python tools} to automate testing and analyse operating data
+  % \item Managed and maintained the company website
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {NLP / LLM Engineering Intern -- Healthcare}
+  {May -- Dec 2024}
+  {CTB - MEDAL Laboratory}
+  {University of Madrid, Spain}
+  {Automated structuring of confidential Spanish clinical notes using LLMs (Llama).}
+\begin{cvitems}
+  \item Built an \textbf{end-to-end NLP pipeline} in Python: extraction, normalisation and structuring
+  \item Integrated \textbf{Llama models via REST API}: prompt engineering, token handling, benchmarks
+  \item Integrated a \textbf{knowledge graph} to link the extracted medical information
+  \item \textbf{Productionised} the pipeline: modular architecture, unit tests, technical documentation
+\end{cvitems}
+
+\cvsep
+\cvexperience
+  {Embedded Systems \& Instrumentation Engineering Intern}
+  {Jun -- Aug 2023}
+  {Stratolia}
+  {Palaiseau, France}
+  {Earth-observation payload carried by a stratospheric balloon.}
+\begin{cvitems}
+  \item Developed a \textbf{ground control system} for an onboard camera
+  \item Carried out the \textbf{mechanical design} and prototyping of the gondola
+  \item Developed \textbf{embedded software} on a microcontroller for sensor data acquisition
+  \item \textbf{Designed the electronics} and produced the \textbf{PCBs}
+  \item Built a \textbf{test bench} simulating flight conditions
+\end{cvitems}
+
+\end{cvtimeline}
+
+% =====================================================================
+%  EDUCATION — \cveducation{Degree}{Dates}{School}{Location}{Details}
+% =====================================================================
+\cvsection{Education}
+\begin{cvtimeline}
+
+\cveducation
+  {MSc in Engineering}
+  {Sep 2020 -- Dec 2024}
+  {ENSEA — École Nationale Supérieure de l’Électronique et de ses Applications}
+  {Cergy, France}
+  {Diplôme d’Ingénieur, Computer Science \& Systems major}
+
+\cvsep
+\cveducation
+  {Preparatory Class (ATS)}
+  {Sep 2019 -- Jun 2020}
+  {Lycée des Remparts}
+  {Marseille, France}
+  {Intensive mathematics and physics for engineering school entrance}
+
+\cvsep
+\cveducation
+  {Technical Degree (DUT)}
+  {Sep 2017 -- Jun 2019}
+  {Aix-Marseille University}
+  {Marseille, France}
+  {Electrical Engineering and Industrial Computing (2-year degree)}
+
+\end{cvtimeline}
+
+% =====================================================================
+%  PROJECTS — \cvproject{Title}{Date}{Link}{Technologies}{Description}
+% =====================================================================
+\cvsection{Projects}
+\begin{cvtimeline}
+
+\cvproject
+  {AI-Assisted Job Application Generator}
+  {Personal project}
+  {\href{https://github.com/thomas-fuzellier/AI-Job-Application-Optimizer}{GitHub}}
+  {Python · Tkinter · Groq API (LLM) · pytest}
+  {Desktop app producing a tailored CV, PDF cover letter and Excel tracker from a job posting.}
+\begin{cvitems}
+  \item \textbf{LLM pipeline}: language detection, selection of the best CV and pre-written paragraphs
+  \item AI restricted to \textbf{selecting validated content}, with no generated text, for controlled output
+  \item \textbf{Modular architecture}, \textbf{PDF} and \textbf{Excel} export, \textbf{unit tests} with a mocked API
+\end{cvitems}
+
+\end{cvtimeline}
+
+\end{cvmain}
+\end{document}
